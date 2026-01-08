@@ -55,7 +55,6 @@ export const AlarmsWidget: React.FC<Props> = ({ alarms = [] }) => {
   }, []);
 
   const enabledAlarms = alarms.filter((a) => a.enabled);
-  const nextAlarm = enabledAlarms.length > 0 ? enabledAlarms[0] : null;
 
   return (
     <div
