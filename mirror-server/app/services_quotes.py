@@ -1,10 +1,9 @@
 # mirror-server/app/services_quotes.py
 
-import os
 from typing import List, Dict, Any
 import requests
+from .config_store import get_api_key
 
-QUOTES_API_KEY = os.getenv("API_NINJAS_KEY")
 QUOTES_API_URL = "https://api.api-ninjas.com/v2/randomquotes"
 
 
@@ -19,12 +18,13 @@ def fetch_random_quote(categories: List[str] = None) -> Dict[str, Any]:
         Dict with keys: quote, author, category
         Returns empty dict on error
     """
-    if not QUOTES_API_KEY:
+    api_key = get_api_key("API_NINJAS_KEY")
+    if not api_key:
         print("[QUOTES] No API_NINJAS_KEY set, returning empty dict")
         return {}
 
     try:
-        headers = {"X-Api-Key": QUOTES_API_KEY}
+        headers = {"X-Api-Key": api_key}
         params = {}
 
         # API Ninjas accepts comma-separated categories

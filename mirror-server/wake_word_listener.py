@@ -37,11 +37,15 @@ except ImportError:
 
 from dotenv import load_dotenv
 
-# Load environment variables
+# Add app directory to path so we can import config_store
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'app'))
+from config_store import get_api_key
+
+# Load environment variables as fallback
 load_dotenv("app/.env")
 
 # Configuration
-PORCUPINE_API_KEY = os.getenv("PORCUPINE_API_KEY")
+PORCUPINE_API_KEY = get_api_key("PORCUPINE_API_KEY")
 WAKE_WORD_PATH = os.getenv("WAKE_WORD_PATH", "wake_words/hey-lorenzo_en_raspberry-pi_v3_0_0.ppn")
 
 # Fallback to built-in keywords if no custom wake word

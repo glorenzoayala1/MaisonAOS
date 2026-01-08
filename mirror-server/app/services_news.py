@@ -1,13 +1,13 @@
 # mirror-server/app/services_news.py
-import os
 from typing import List, Dict, Any
 import requests
+from .config_store import get_api_key
 
-NEWS_API_KEY = os.getenv("NEWS_API_KEY")
 NEWS_API_URL = "https://newsapi.org/v2/top-headlines"
 
 def fetch_top_news(category: str = "technology", country: str = "us") -> List[Dict[str, Any]]:
-    if not NEWS_API_KEY:
+    api_key = get_api_key("NEWS_API_KEY")
+    if not api_key:
         print("[NEWS] No NEWS_API_KEY set, returning empty list")
         return []
 
@@ -15,7 +15,7 @@ def fetch_top_news(category: str = "technology", country: str = "us") -> List[Di
         resp = requests.get(
             NEWS_API_URL,
             params={
-                "apiKey": NEWS_API_KEY,
+                "apiKey": api_key,
                 "category": category,
                 "country": country,
                 "pageSize": 10,

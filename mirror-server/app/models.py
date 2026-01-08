@@ -144,6 +144,9 @@ class MirrorConfig(BaseModel):
     # alarms configuration
     alarmItems: List[AlarmItem] = []
 
+    # API keys configuration (optional - falls back to .env if not set)
+    apiKeys: Optional[Dict[str, str]] = None
+
 
 # ---- keep these for existing endpoints in main.py ----
 

@@ -1,12 +1,8 @@
 # mirror-server/app/weather_service.py
 
-import os
 from typing import Dict, Any
-
 import requests
-
-# ✅ Correct: read from env var named OPENWEATHER_API_KEY
-OPENWEATHER_API_KEY = os.getenv("OPENWEATHER_API_KEY")
+from .config_store import get_api_key
 
 OPENWEATHER_URL = "https://api.openweathermap.org/data/2.5/weather"
 
@@ -50,14 +46,15 @@ def get_weather_for_city(city: str) -> Dict[str, Any]:
           "symbol": str,
         }
     """
-    if not OPENWEATHER_API_KEY:
+    api_key = get_api_key("OPENWEATHER_API_KEY")
+    if not api_key:
         # Fallback used when no API key configured
         return _fallback_weather("no OPENWEATHER_API_KEY set")
 
     try:
         params = {
             "q": city,
-            "appid": OPENWEATHER_API_KEY,
+            "appid": api_key,
             "units": "imperial",  # ✅ get °F directly
         }
         resp = requests.get(OPENWEATHER_URL, params=params, timeout=5)

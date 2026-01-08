@@ -20,7 +20,7 @@ import sounddevice as sd
 import soundfile as sf
 from openai import OpenAI
 
-from app.config_store import load_config
+from app.config_store import load_config, get_api_key
 from app.context_manager import build_context
 from app.maison_os.mirror_snapshot import get_mirror_snapshot
 from app.maison_os.agent import build_data_grounded_system_prompt, plan_ui_actions
@@ -28,11 +28,14 @@ from app.actions import execute_action
 
 
 # ---------- OpenAI client ----------
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-if not OPENAI_API_KEY:
-    raise RuntimeError("OPENAI_API_KEY is not set")
+def get_openai_client() -> OpenAI:
+    """Get OpenAI client with API key from config or env"""
+    api_key = get_api_key("OPENAI_API_KEY")
+    if not api_key:
+        raise RuntimeError("OPENAI_API_KEY is not set")
+    return OpenAI(api_key=api_key)
 
-client = OpenAI(api_key=OPENAI_API_KEY)
+client = get_openai_client()
 
 # ---------- audio config ----------
 SAMPLE_RATE = 16_000

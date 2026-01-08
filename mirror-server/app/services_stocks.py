@@ -1,13 +1,12 @@
 # mirror-server/app/services_stocks.py
 from __future__ import annotations
 
-import os
 from typing import Any, Dict, List, Optional
 from datetime import datetime, timedelta, timezone
 
 import requests
+from .config_store import get_api_key
 
-FINNHUB_API_KEY = "d53jm5pr01qkplgvjjlgd53jm5pr01qkplgvjjm0"
 BASE = "https://finnhub.io/api/v1"
 
 
@@ -15,15 +14,18 @@ class StocksError(Exception):
     pass
 
 
-def _ensure_api_key() -> None:
-    if not FINNHUB_API_KEY:
+def _get_api_key() -> str:
+    """Get Finnhub API key from config or env"""
+    api_key = get_api_key("FINNHUB_API_KEY")
+    if not api_key:
         raise StocksError("FINNHUB_API_KEY is not set")
+    return api_key
 
 
 def _get(path: str, params: dict | None = None) -> dict:
-    _ensure_api_key()
+    api_key = _get_api_key()
     params = dict(params or {})
-    params["token"] = FINNHUB_API_KEY
+    params["token"] = api_key
     url = f"{BASE}{path}"
     resp = requests.get(url, params=params, timeout=10)
     resp.raise_for_status()

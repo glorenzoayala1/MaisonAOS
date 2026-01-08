@@ -190,6 +190,15 @@ export type MirrorConfig = {
   display: DisplaySettings;
   // layouts is optional so old configs still parse
   layouts?: LayoutSettings;
+  // API keys (optional - falls back to .env if not set)
+  apiKeys?: {
+    OPENAI_API_KEY?: string;
+    OPENWEATHER_API_KEY?: string;
+    NEWS_API_KEY?: string;
+    API_NINJAS_KEY?: string;
+    FINNHUB_API_KEY?: string;
+    PORCUPINE_API_KEY?: string;
+  };
 };
 
 // Backend API base URL

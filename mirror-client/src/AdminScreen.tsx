@@ -414,6 +414,232 @@ export const AdminScreen: React.FC = () => {
         </div>
       </section>
 
+      {/* API Keys */}
+      <section style={{ marginBottom: "32px" }}>
+        <h2 style={{ fontSize: "1.2rem", marginBottom: "8px" }}>
+          API Keys
+        </h2>
+        <div style={{ fontSize: "0.85rem", opacity: 0.7, marginBottom: "12px" }}>
+          Configure API keys for mirror services. Keys are stored in config and require server restart to apply.
+        </div>
+
+        {/* Warning banner */}
+        <div
+          style={{
+            padding: "10px 14px",
+            borderRadius: "8px",
+            border: "1px solid rgba(255,180,50,0.5)",
+            background: "rgba(255,150,50,0.15)",
+            color: "rgba(255,200,100,1)",
+            fontSize: "0.85rem",
+            marginBottom: "16px",
+            lineHeight: 1.5,
+          }}
+        >
+          ⚠️ After updating API keys, you must restart the mirror server for changes to take effect.
+        </div>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          {/* OpenAI API Key */}
+          <div>
+            <label
+              htmlFor="openai-key"
+              style={{ fontSize: "0.9rem", display: "block", marginBottom: "6px", opacity: 0.9 }}
+            >
+              OpenAI API Key (Voice/Zo)
+            </label>
+            <input
+              id="openai-key"
+              type="password"
+              placeholder="sk-proj-..."
+              value={config.apiKeys?.OPENAI_API_KEY || ""}
+              onChange={(e) =>
+                setConfig({
+                  ...config,
+                  apiKeys: { ...config.apiKeys, OPENAI_API_KEY: e.target.value },
+                })
+              }
+              style={{
+                width: "100%",
+                maxWidth: "500px",
+                padding: "10px 14px",
+                borderRadius: "8px",
+                border: "1px solid rgba(100,100,100,0.4)",
+                background: "rgba(20,20,30,0.6)",
+                color: "#fff",
+                fontSize: "0.85rem",
+                fontFamily: "monospace",
+              }}
+            />
+          </div>
+
+          {/* Weather API Key */}
+          <div>
+            <label
+              htmlFor="weather-key"
+              style={{ fontSize: "0.9rem", display: "block", marginBottom: "6px", opacity: 0.9 }}
+            >
+              OpenWeather API Key (Weather)
+            </label>
+            <input
+              id="weather-key"
+              type="password"
+              placeholder="Your OpenWeather API key"
+              value={config.apiKeys?.OPENWEATHER_API_KEY || ""}
+              onChange={(e) =>
+                setConfig({
+                  ...config,
+                  apiKeys: { ...config.apiKeys, OPENWEATHER_API_KEY: e.target.value },
+                })
+              }
+              style={{
+                width: "100%",
+                maxWidth: "500px",
+                padding: "10px 14px",
+                borderRadius: "8px",
+                border: "1px solid rgba(100,100,100,0.4)",
+                background: "rgba(20,20,30,0.6)",
+                color: "#fff",
+                fontSize: "0.85rem",
+                fontFamily: "monospace",
+              }}
+            />
+          </div>
+
+          {/* News API Key */}
+          <div>
+            <label
+              htmlFor="news-key"
+              style={{ fontSize: "0.9rem", display: "block", marginBottom: "6px", opacity: 0.9 }}
+            >
+              News API Key (News)
+            </label>
+            <input
+              id="news-key"
+              type="password"
+              placeholder="Your NewsAPI.org key"
+              value={config.apiKeys?.NEWS_API_KEY || ""}
+              onChange={(e) =>
+                setConfig({
+                  ...config,
+                  apiKeys: { ...config.apiKeys, NEWS_API_KEY: e.target.value },
+                })
+              }
+              style={{
+                width: "100%",
+                maxWidth: "500px",
+                padding: "10px 14px",
+                borderRadius: "8px",
+                border: "1px solid rgba(100,100,100,0.4)",
+                background: "rgba(20,20,30,0.6)",
+                color: "#fff",
+                fontSize: "0.85rem",
+                fontFamily: "monospace",
+              }}
+            />
+          </div>
+
+          {/* Quotes API Key */}
+          <div>
+            <label
+              htmlFor="quotes-key"
+              style={{ fontSize: "0.9rem", display: "block", marginBottom: "6px", opacity: 0.9 }}
+            >
+              API Ninjas Key (Quotes)
+            </label>
+            <input
+              id="quotes-key"
+              type="password"
+              placeholder="Your API Ninjas key"
+              value={config.apiKeys?.API_NINJAS_KEY || ""}
+              onChange={(e) =>
+                setConfig({
+                  ...config,
+                  apiKeys: { ...config.apiKeys, API_NINJAS_KEY: e.target.value },
+                })
+              }
+              style={{
+                width: "100%",
+                maxWidth: "500px",
+                padding: "10px 14px",
+                borderRadius: "8px",
+                border: "1px solid rgba(100,100,100,0.4)",
+                background: "rgba(20,20,30,0.6)",
+                color: "#fff",
+                fontSize: "0.85rem",
+                fontFamily: "monospace",
+              }}
+            />
+          </div>
+
+          {/* Stocks API Key */}
+          <div>
+            <label
+              htmlFor="stocks-key"
+              style={{ fontSize: "0.9rem", display: "block", marginBottom: "6px", opacity: 0.9 }}
+            >
+              Finnhub API Key (Stocks)
+            </label>
+            <input
+              id="stocks-key"
+              type="password"
+              placeholder="Your Finnhub API key"
+              value={config.apiKeys?.FINNHUB_API_KEY || ""}
+              onChange={(e) =>
+                setConfig({
+                  ...config,
+                  apiKeys: { ...config.apiKeys, FINNHUB_API_KEY: e.target.value },
+                })
+              }
+              style={{
+                width: "100%",
+                maxWidth: "500px",
+                padding: "10px 14px",
+                borderRadius: "8px",
+                border: "1px solid rgba(100,100,100,0.4)",
+                background: "rgba(20,20,30,0.6)",
+                color: "#fff",
+                fontSize: "0.85rem",
+                fontFamily: "monospace",
+              }}
+            />
+          </div>
+
+          {/* Porcupine API Key */}
+          <div>
+            <label
+              htmlFor="porcupine-key"
+              style={{ fontSize: "0.9rem", display: "block", marginBottom: "6px", opacity: 0.9 }}
+            >
+              Porcupine API Key (Wake Word)
+            </label>
+            <input
+              id="porcupine-key"
+              type="password"
+              placeholder="Your Picovoice Porcupine key"
+              value={config.apiKeys?.PORCUPINE_API_KEY || ""}
+              onChange={(e) =>
+                setConfig({
+                  ...config,
+                  apiKeys: { ...config.apiKeys, PORCUPINE_API_KEY: e.target.value },
+                })
+              }
+              style={{
+                width: "100%",
+                maxWidth: "500px",
+                padding: "10px 14px",
+                borderRadius: "8px",
+                border: "1px solid rgba(100,100,100,0.4)",
+                background: "rgba(20,20,30,0.6)",
+                color: "#fff",
+                fontSize: "0.85rem",
+                fontFamily: "monospace",
+              }}
+            />
+          </div>
+        </div>
+      </section>
+
       {/* MaisonOS mode pills */}
       <section style={{ marginBottom: "24px" }}>
         <h2 style={{ fontSize: "1.2rem", marginBottom: "6px" }}>
