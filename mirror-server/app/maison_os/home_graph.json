@@ -1,0 +1,71 @@
+{
+  "rooms": {
+    "bedroom": {
+      "id": "bedroom",
+      "name": "Bedroom",
+      "surfaces": [
+        "mirror"
+      ],
+      "devices": [
+        "mirror_main",
+        "bedroom_light"
+      ],
+      "context": {
+        "lightingLevel": 0.3,
+        "ambience": "warm"
+      }
+    },
+    "bathroom": {
+      "id": "bathroom",
+      "name": "Bathroom",
+      "surfaces": [
+        "mirror"
+      ],
+      "devices": [
+        "bath_light"
+      ],
+      "context": {
+        "lightingLevel": 0.8,
+        "ambience": "bright"
+      }
+    }
+  },
+  "devices": {
+    "mirror_main": {
+      "id": "mirror_main",
+      "type": "mirror",
+      "room_id": "bedroom",
+      "state": {
+        "online": true
+      }
+    },
+    "bedroom_light": {
+      "id": "bedroom_light",
+      "type": "light",
+      "room_id": "bedroom",
+      "state": {
+        "on": true,
+        "brightness": 0.8,
+        "color": "warm"
+      }
+    },
+    "bath_light": {
+      "id": "bath_light",
+      "type": "light",
+      "room_id": "bathroom",
+      "state": {
+        "on": false,
+        "brightness": 0.8,
+        "color": "cool"
+      }
+    }
+  },
+  "user": {
+    "current_room": "bedroom",
+    "wake_time": "07:30",
+    "sleep_time": "23:30",
+    "mood": null,
+    "energy": null,
+    "priority": "get_ready"
+  }
+}

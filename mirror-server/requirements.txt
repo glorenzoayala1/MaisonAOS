@@ -1,0 +1,19 @@
+# FastAPI and server
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.0.0
+
+# Environment variables
+python-dotenv>=1.0.0
+
+# HTTP requests
+requests>=2.31.0
+
+# Voice and audio
+openai>=1.0.0
+sounddevice>=0.4.6
+soundfile>=0.12.1
+pvporcupine>=3.0.0
+
+# GPIO for Raspberry Pi (optional on Mac)
+RPi.GPIO>=0.7.1; platform_machine == "aarch64" or platform_machine == "armv7l"

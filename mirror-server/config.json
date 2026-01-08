@@ -1,0 +1,54 @@
+{
+  "location": "San Diego",
+  "widgets": {
+    "clock": true,
+    "weather": true,
+    "today": true,
+    "surf": true
+  },
+  "temperatureF": 72.0,
+  "weatherDescription": "Clear skies (fallback, no API key)",
+  "todayItems": [
+    {
+      "time": null,
+      "label": "Finish mirror UI v1"
+    },
+    {
+      "time": null,
+      "label": "Fuck the princess and get money"
+    },
+    {
+      "time": null,
+      "label": "Plan tomorrow's tasks"
+    },
+    {
+      "time": "",
+      "label": "boobs"
+    }
+  ],
+  "weatherSymbol": "\u2600",
+  "display": {
+    "fontStyle": "serif",
+    "accentColor": "gold",
+    "showBorders": true,
+    "cardStyle": "glass"
+  },
+  "layouts": {
+    "clock": {
+      "position": "topLeft",
+      "size": "large"
+    },
+    "weather": {
+      "position": "topRight",
+      "size": "medium"
+    },
+    "today": {
+      "position": "middleLeft",
+      "size": "small"
+    },
+    "surf": {
+      "position": "middleRight",
+      "size": "medium"
+    }
+  }
+}

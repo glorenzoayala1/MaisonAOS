@@ -1,0 +1,133 @@
+{
+  "os_mode": "default",
+  "location": "San Diego",
+  "widgets": {
+    "clock": true,
+    "weather": true,
+    "today": true,
+    "surf": false,
+    "news": true,
+    "stocks": true,
+    "quotes": true,
+    "alarms": true
+  },
+  "temperatureF": 72.0,
+  "weatherDescription": "Clear skies",
+  "weatherSymbol": "\u2600\ufe0f",
+  "todayItems": [
+    {
+      "time": null,
+      "label": "Finish mirror UI V2"
+    },
+    {
+      "time": null,
+      "label": "Review product roadmap"
+    },
+    {
+      "time": null,
+      "label": "Keep going"
+    },
+    {
+      "time": null,
+      "label": "Prep marketing material"
+    }
+  ],
+  "newsItems": [],
+  "display": {
+    "theme": "custom",
+    "fontStyle": "serif",
+    "accentColor": "white",
+    "showBorders": false,
+    "cardStyle": "glass",
+    "backgroundMode": "timeOfDay",
+    "voicePreset": "alloy",
+    "sleepMode": false,
+    "ambientIntensity": 0.85,
+    "layoutPreset": "classic"
+  },
+  "layouts": {
+    "clock": {
+      "position": "topLeft",
+      "size": "large",
+      "offsetX": 0,
+      "offsetY": 0
+    },
+    "weather": {
+      "position": "topRight",
+      "size": "medium",
+      "offsetX": 0,
+      "offsetY": 0
+    },
+    "today": {
+      "position": "middleLeft",
+      "size": "medium",
+      "offsetX": -223,
+      "offsetY": -16
+    },
+    "surf": {
+      "position": "bottomLeft",
+      "size": "small",
+      "offsetX": -229,
+      "offsetY": -6
+    },
+    "news": {
+      "position": "bottomRight",
+      "size": "small",
+      "offsetX": 0,
+      "offsetY": 0
+    },
+    "stocks": {
+      "position": "middleRight",
+      "size": "small",
+      "offsetX": 0,
+      "offsetY": 0
+    },
+    "quotes": {
+      "position": "topCenter",
+      "size": "medium",
+      "offsetX": 0,
+      "offsetY": 0
+    },
+    "alarms": {
+      "position": "bottomLeft",
+      "size": "small",
+      "offsetX": 0,
+      "offsetY": 0
+    }
+  },
+  "stocksItems": [
+    {
+      "symbol": "NVDA"
+    },
+    {
+      "symbol": "AAPL"
+    },
+    {
+      "symbol": "SPY"
+    }
+  ],
+  "quotesCategories": [
+    "philosophy",
+    "success"
+  ],
+  "currentQuote": {
+    "quote": "Love runs the engine",
+    "author": "Nora Roberts",
+    "category": null
+  },
+  "newsCategories": [
+    "technology",
+    "sports",
+    "business"
+  ],
+  "alarmItems": [
+    {
+      "id": "alarm-1766616617439",
+      "time": "15:00",
+      "enabled": true,
+      "days": [],
+      "label": "Test 1 does alarm work.",
+      "soundEnabled": true
+    }
+  ]
+}

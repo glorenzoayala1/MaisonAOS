@@ -1,0 +1,16 @@
+[Unit]
+Description=Maison Mirror Motion Sensor Monitor
+After=network.target maison-backend.service
+Requires=maison-backend.service
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/maison-mirror/mirror-server
+Environment="PATH=/home/pi/maison-mirror/mirror-server/venv/bin:/usr/local/bin:/usr/bin:/bin"
+ExecStart=/home/pi/maison-mirror/mirror-server/venv/bin/python3 motion_sensor.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
